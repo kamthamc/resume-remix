@@ -15,9 +15,8 @@
     "generate:css": "tailwindcss -o ./app/styles/tailwind.css",
     "postinstall": "remix setup node",
     "lint": "eslint --cache-location ./node_modules/.cache/eslint .",
-    "setup": "run-s setup:db setup:app",
+    "setup": "run-s setup:app",
     "setup:app": "run-p \"test -- --run\" lint typecheck test:e2e:run",
-    "setup:db": "prisma migrate dev",
     "start": "remix-serve build",
     "start:mocks": "node --require ./mocks ./node_modules/.bin/remix-serve build",
     "test": "vitest",
@@ -34,7 +33,6 @@
   ],
   "dependencies": {
     "@node-rs/bcrypt": "^1.6.0",
-    "@prisma/client": "^3.11.0",
     "@reach/alert": "^0.16.0",
     "@remix-run/react": "^1.3.1",
     "@remix-run/serve": "^1.3.1",
@@ -52,6 +50,7 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "@types/eslint": "^8.4.1",
+    "@types/node": "16",
     "@types/react": "^17.0.40",
     "@types/react-dom": "^17.0.13",
     "@vitejs/plugin-react": "^1.2.0",
@@ -66,7 +65,6 @@
     "npm-run-all": "^4.1.5",
     "prettier": "2.6.0",
     "prettier-plugin-tailwindcss": "^0.1.8",
-    "prisma": "^3.11.0",
     "start-server-and-test": "^1.14.0",
     "tailwindcss": "^3.0.23",
     "typescript": "^4.6.2",
@@ -76,8 +74,5 @@
   "engines": {
     "node": ">=14"
   },
-  "packageManager": "yarn@3.2.0",
-  "prisma": {
-    "seed": "node --require esbuild-register prisma/seed.ts"
-  }
+  "packageManager": "yarn@3.2.0"
 }
